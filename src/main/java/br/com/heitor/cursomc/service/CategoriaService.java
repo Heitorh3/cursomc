@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.heitor.cursomc.domain.Categoria;
 import br.com.heitor.cursomc.repository.CategoriaRepository;
+import br.com.heitor.cursomc.service.exceptions.CategoriaInexistenteOuInativaException;
 
 @Service
 public class CategoriaService {
@@ -16,10 +17,6 @@ public class CategoriaService {
 	
 	public Categoria buscar(Long id) {
 		Optional<Categoria> categoriaExistente = categoriaRepository.findById(id); 
-		if(categoriaExistente.isPresent()) {
-			return categoriaExistente.get();
-		}
-		
-		return null;
+		return categoriaExistente.orElseThrow(()-> new CategoriaInexistenteOuInativaException());
 	}
 }
