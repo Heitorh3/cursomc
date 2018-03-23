@@ -27,4 +27,9 @@ public class CategoriaService {
 	public Categoria atualizar(Categoria categoria) {
 		return categoriaRepository.saveAndFlush(categoria);	
 	}
+
+	public void apagar(Long id) {
+		categoriaRepository.deleteById(id);
+		
+	}
 }
