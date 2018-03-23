@@ -10,6 +10,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import br.com.heitor.cursomc.domain.Categoria;
+import br.com.heitor.cursomc.dto.CategoriaDTO;
 import br.com.heitor.cursomc.repository.CategoriaRepository;
 import br.com.heitor.cursomc.service.exceptions.CategoriaInexistenteOuInativaException;
 
@@ -46,5 +47,9 @@ public class CategoriaService {
 		PageRequest pageRequest = new PageRequest(page, linesPerPage, Direction.valueOf(direction), orderBy);
 		
 		return categoriaRepository.findAll(pageRequest);
+	}
+	
+	public Categoria fromDTO(CategoriaDTO categoriaDTO){
+		return new Categoria(categoriaDTO.getId(), categoriaDTO.getNome());
 	}
 }
