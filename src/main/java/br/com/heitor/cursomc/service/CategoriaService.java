@@ -1,5 +1,6 @@
 package br.com.heitor.cursomc.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,4 +33,9 @@ public class CategoriaService {
 		categoriaRepository.deleteById(id);
 		
 	}
+
+	public List<Categoria> buscarTodos() {
+		return categoriaRepository.findAll();
+	}
+
 }
