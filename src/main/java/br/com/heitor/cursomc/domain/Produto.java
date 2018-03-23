@@ -50,6 +50,14 @@ public class Produto implements Serializable{
 		this.nome = nome;
 		this.preco = preco;
 	}
+	
+	public List<Pedido> getPedidos(){
+		List<Pedido> lista = new ArrayList<>();
+		for(ItemPedido item: itens){
+			lista.add(item.getPedido());
+		}
+		return lista;
+	}
 
 	public Long getId() {
 		return id;
