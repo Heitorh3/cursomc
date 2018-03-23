@@ -19,4 +19,8 @@ public class CategoriaService {
 		Optional<Categoria> categoriaExistente = categoriaRepository.findById(id); 
 		return categoriaExistente.orElseThrow(()-> new CategoriaInexistenteOuInativaException());
 	}
+
+	public Categoria salvar(Categoria categoria) {
+		return categoriaRepository.saveAndFlush(categoria);		
+	}
 }
