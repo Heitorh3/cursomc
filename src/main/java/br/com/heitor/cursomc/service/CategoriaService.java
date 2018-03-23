@@ -23,4 +23,8 @@ public class CategoriaService {
 	public Categoria salvar(Categoria categoria) {
 		return categoriaRepository.saveAndFlush(categoria);		
 	}
+
+	public Categoria atualizar(Categoria categoria) {
+		return categoriaRepository.saveAndFlush(categoria);	
+	}
 }
