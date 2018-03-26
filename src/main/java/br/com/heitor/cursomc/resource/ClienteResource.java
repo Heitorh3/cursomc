@@ -1,25 +1,21 @@
 package br.com.heitor.cursomc.resource;
 
+import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
+import br.com.heitor.cursomc.dto.ClienteNewDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import br.com.heitor.cursomc.domain.Cliente;
 import br.com.heitor.cursomc.dto.ClienteDTO;
 import br.com.heitor.cursomc.service.ClienteService;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
 @RequestMapping(value = "/clientes")
@@ -56,17 +52,17 @@ public class ClienteResource {
 		
 		return ResponseEntity.ok().body(clienteDTO);
 	}
-	/*
+
 	@PostMapping
-	public ResponseEntity<Void>salvar(@Valid @RequestBody ClienteDTO clienteDTO){
-		Cliente obj = service.fromDTO(clienteDTO); 
-		//Cliente cliente = service.salvar(obj);
+	public ResponseEntity<Void>salvar(@Valid @RequestBody ClienteNewDTO clienteNewDTO){
+		Cliente obj = service.fromDTO(clienteNewDTO);
+		Cliente cliente = service.salvar(obj);
 		
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(cliente.getId()).toUri();
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
 		
 		return ResponseEntity.created(uri).build();
 	}
-	*/
+
 	@PutMapping("/{id}")
 	public ResponseEntity<Void> atualizar(@Valid @RequestBody ClienteDTO clienteDTO){
 		System.out.println("ClienteDTO: " + clienteDTO.toString());

@@ -3,6 +3,7 @@ package br.com.heitor.cursomc.service;
 import java.util.List;
 import java.util.Optional;
 
+import br.com.heitor.cursomc.dto.ClienteNewDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -23,6 +24,10 @@ public class ClienteService {
 	public Cliente buscar(Long id) {
 		Optional<Cliente> clienteExistente = clienteRepository.findById(id); 
 		return clienteExistente.orElseThrow(()-> new ClienteInexistenteOuInativaException());
+	}
+
+	public Cliente salvar(ClienteNewDTO obj) {
+		return null;
 	}
 	
 	public Cliente atualizar(Cliente clienteDTO) {
@@ -52,4 +57,5 @@ public class ClienteService {
 	public Cliente fromDTO(ClienteDTO clienteDTO){
 		return new Cliente(clienteDTO.getId(), clienteDTO.getNome(), clienteDTO.getEmail(), null, null);
 	}
+
 }
