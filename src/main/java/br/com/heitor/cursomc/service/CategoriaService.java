@@ -42,10 +42,11 @@ public class CategoriaService {
 		return categoriaRepository.findAll();
 	}
 
-	@SuppressWarnings("deprecation")
 	public Page<Categoria>buscarPagina(Integer page, Integer linesPerPage, String orderBy, String direction){
-		PageRequest pageRequest = new PageRequest(page, linesPerPage, Direction.valueOf(direction), orderBy);
-		
+		//PageRequest pageRequest = new PageRequest(page, linesPerPage, Direction.valueOf(direction), orderBy);
+		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction),
+				orderBy);
+
 		return categoriaRepository.findAll(pageRequest);
 	}
 	
