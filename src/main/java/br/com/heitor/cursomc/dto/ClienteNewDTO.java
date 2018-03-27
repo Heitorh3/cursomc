@@ -2,9 +2,6 @@ package br.com.heitor.cursomc.dto;
 
 import br.com.heitor.cursomc.domain.TipoCliente;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.io.Serializable;
 
 public class ClienteNewDTO implements Serializable {
@@ -27,7 +24,7 @@ public class ClienteNewDTO implements Serializable {
     private String telefone2;
     private String telefone3;
 
-    private Long idCidade;
+    private Long cidadeId;
 
     public ClienteNewDTO() {
     }
@@ -128,12 +125,12 @@ public class ClienteNewDTO implements Serializable {
         this.telefone3 = telefone3;
     }
 
-    public Long getIdCidade() {
-        return idCidade;
+    public Long getCidadeId() {
+        return cidadeId;
     }
 
-    public void setIdCidade(Long idCidade) {
-        this.idCidade = idCidade;
+    public void setCidadeId(Long cidadeId) {
+        this.cidadeId = cidadeId;
     }
 
     public TipoCliente getTipoCliente() {

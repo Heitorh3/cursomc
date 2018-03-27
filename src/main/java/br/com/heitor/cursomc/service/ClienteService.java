@@ -2,7 +2,6 @@ package br.com.heitor.cursomc.service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.OptionalInt;
 
 import br.com.heitor.cursomc.domain.Cidade;
 import br.com.heitor.cursomc.domain.Endereco;
@@ -75,7 +74,7 @@ public class ClienteService {
 	public Cliente fromDTO(ClienteNewDTO clienteNewDTO){
 		Cliente cli = new Cliente(null, clienteNewDTO.getNome(), clienteNewDTO.getEmail(), clienteNewDTO.getCpfOuCnpj(), clienteNewDTO.getTipoCliente());
 
-		Optional<Cidade> cidade = cidadeRepository.findById(clienteNewDTO.getIdCidade());
+		Optional<Cidade> cidade = cidadeRepository.findById(clienteNewDTO.getCidadeId());
 
 		Endereco endereco = new Endereco(null, clienteNewDTO.getLogradouro(),clienteNewDTO.getNumero(),
 				clienteNewDTO.getComplemento(),clienteNewDTO.getBairro(), clienteNewDTO.getCep(),cli, cidade.get());
