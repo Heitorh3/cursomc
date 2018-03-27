@@ -65,8 +65,7 @@ public class ClienteResource {
 
 	@PutMapping("/{id}")
 	public ResponseEntity<Void> atualizar(@Valid @RequestBody ClienteDTO clienteDTO){
-		System.out.println("ClienteDTO: " + clienteDTO.toString());
-		Cliente obj = service.fromDTO(clienteDTO); 
+		Cliente obj = service.fromDTO(clienteDTO);
 		
 		service.atualizar(obj);
 		

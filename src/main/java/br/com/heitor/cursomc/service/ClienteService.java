@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import br.com.heitor.cursomc.domain.Cidade;
 import br.com.heitor.cursomc.domain.Endereco;
+import br.com.heitor.cursomc.domain.TipoCliente;
 import br.com.heitor.cursomc.dto.ClienteNewDTO;
 import br.com.heitor.cursomc.repository.CidadeRepository;
 import br.com.heitor.cursomc.repository.EnderecoRepository;
@@ -72,6 +73,7 @@ public class ClienteService {
 	}
 
 	public Cliente fromDTO(ClienteNewDTO clienteNewDTO){
+		System.out.println("ClienteDTO: " + clienteNewDTO.getTipoCliente());
 		Cliente cli = new Cliente(null, clienteNewDTO.getNome(), clienteNewDTO.getEmail(), clienteNewDTO.getCpfOuCnpj(), clienteNewDTO.getTipoCliente());
 
 		Optional<Cidade> cidade = cidadeRepository.findById(clienteNewDTO.getCidadeId());

@@ -2,7 +2,7 @@ package br.com.heitor.cursomc.domain;
 
 public enum TipoCliente {
 
-	PESSOFISICA("Pessoa Física"), 
+	PESSOAFISICA("Pessoa Física"),
 	PESSOAJURIDICA("Pessoa Jurídica");
 
 	private String descricao;

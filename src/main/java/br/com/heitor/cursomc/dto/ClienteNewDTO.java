@@ -1,17 +1,27 @@
 package br.com.heitor.cursomc.dto;
 
 import br.com.heitor.cursomc.domain.TipoCliente;
+import org.hibernate.validator.constraints.Length;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
 public class ClienteNewDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Long id;
+    @NotEmpty(message = "Preenchimento obrigatório")
+    @Length(min=5, message="O nome deve ter no minímo 5 caracteres")
     private String nome;
+
+    @NotEmpty(message = "Preenchimento obrigatório")
+    @Email(message = "Email inválido")
     private String email;
+
+    @NotEmpty(message = "Preenchimento obrigatório")
     private String cpfOuCnpj;
+
     private TipoCliente tipoCliente;
 
     private String logradouro;
@@ -27,14 +37,6 @@ public class ClienteNewDTO implements Serializable {
     private Long cidadeId;
 
     public ClienteNewDTO() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getNome() {
